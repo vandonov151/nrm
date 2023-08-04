@@ -1,0 +1,25 @@
+1.Transfer Your Flask Application Files:
+Use secure methods like SFTP or SSH to transfer your Flask application files (including app.py, templates, static, and other required files) to your server. Some hosting providers may offer web-based file managers to simplify this process.
+
+2.Install Dependencies:
+Log in to your server and install the required dependencies for your Flask application. This may include Python, Flask, and any other Python packages used in your application.
+$ pip install -r requirements.txt
+
+
+3.Configure the Web Server:
+Set up the web server to serve your Flask application. For example, if you are using Apache or Nginx, you'll need to configure them to serve the application using a WSGI server like Gunicorn or uWSGI.
+Run Your Flask Application:
+Start your Flask application on the server. Use Gunicorn or uWSGI to run the app in the background. For example, if you are using Gunicorn, you can run:
+					gunicorn app:app
+
+4.Set Up Domain and DNS:
+If you have a custom domain name, configure your domain's DNS settings to point to your server's IP address. You'll typically create an "A" record or "CNAME" record pointing to your server.
+
+5.Test Your Application:
+Once everything is set up, access your application using the domain name or IP address in a web browser. Ensure that your application works as expected.
+
+6.Enable HTTPS:
+To secure your website, set up SSL/TLS certificates to enable HTTPS. Many hosting providers offer free SSL certificates through Let's Encrypt or similar services.
+
+7.Monitor and Maintain:
+Regularly monitor your application's performance and security. Keep your software and dependencies up to date, and be prepared to handle traffic spikes.
