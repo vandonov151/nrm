@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Удостоверение - Проверка на удостоверенията</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div id="allcontent">
+        <div id="header">
+            <h1>Проверка на удостоверенията,<br>
+                издадени чрез<br>
+                Националния регистър на населението
+            </h1>
+        </div>
+        <form action="/" method="post" onsubmit="return verifyForm(event);">
+                <div class="fields">
+                <p>Код от удостоверението:</p>
+                <p><input name="docHash" maxlength="10" value="{{ request.args.get('h', '') }}"></p>
+                <p>ЕГН:</p>
+                <p><input name="docEgn" maxlength="10" value="{{ request.args.get('e', '') }}"></p>
+            </div>
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+            <div class="fields">
+                <p><input type="submit" value=" Проверка "></p>
+                {% if error_message %}
+                    <p style="color: red;">{{ error_message }}</p>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
